@@ -1,0 +1,156 @@
+:root {
+    --primary-red: #d32f2f;
+    --secondary-red: #ef5350;
+    --dark-red: #c62828;
+    --light-red: #ffebee;
+    --bg-color: #f8f9fa;
+    --white: #ffffff;
+    --text-main: #343a40;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar.bg-danger {
+    background: linear-gradient(90deg, var(--dark-red) 0%, var(--primary-red) 100%) !important;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2) !important;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-header {
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    font-weight: 600;
+}
+
+.card-header.bg-danger {
+    background-color: var(--primary-red) !important;
+}
+
+/* Tables */
+.table {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: var(--light-red) !important;
+    color: var(--dark-red) !important;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    padding: 1rem;
+}
+
+.table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(211, 47, 47, 0.03);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    transition: all 0.2s;
+}
+
+.btn-danger {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-danger:hover {
+    background-color: var(--dark-red);
+    border-color: var(--dark-red);
+    transform: translateY(-1px);
+}
+
+.btn-outline-danger {
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.btn-success {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+/* Modal Styling */
+.modal-header.bg-danger {
+    background: var(--primary-red) !important;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Badges */
+.badge.bg-secondary {
+    background-color: var(--text-muted) !important;
+    color: var(--white);
+}
+
+/* Custom Statistics Dashboard Cards */
+.stat-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card-total {
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+}
+
+.stat-card-month {
+    background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+}
+
+.stat-card-year {
+    background: linear-gradient(135deg, #e53935, #ff8a80);
+}
+
+.stat-icon {
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    font-size: 5rem;
+    opacity: 0.15;
+}
