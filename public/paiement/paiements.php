@@ -280,7 +280,7 @@ require __DIR__ . '/../_header.php';
                       <input type="date" name="datePaie" class="form-control" value="<?= $n['datePaie'] ?>" required>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label class="form-label fw-bold">Année Ac.</label>
+                      <label class="form-label fw-bold">Année Académique</label>
                       <input type="text" name="anneeAc" class="form-control" value="<?= htmlspecialchars($n['anneeAc']) ?>" required>
                     </div>
                   </div>
