@@ -45,205 +45,148 @@ if (!str_contains($root, '/public')) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="<?php echo $root; ?>/css/style.css">
   <style>
-    :root {
-      --primary-red: #d32f2f;
-      --dark-red: #b71c1c;
-      --light-red: #ffebee;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f8f9fa 0%, #dcdfe2ff 40%, #dcdfe2ff 100%);
+      background-color: var(--bg-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      position: relative;
+      min-height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
-    /* Animated background blobs */
-    body::before, body::after {
-      content: '';
+    /* Subtle background animation matching the app's clean look */
+    .bg-decoration {
       position: absolute;
-      border-radius: 50%;
-      opacity: 0.15;
-      animation: float 8s ease-in-out infinite;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+      overflow: hidden;
     }
-    body::before {
+    .blob {
+      position: absolute;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, #d32f2f, transparent);
-      top: -150px; right: -100px;
-      animation-delay: 0s;
+      background: var(--light-red);
+      filter: blur(80px);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: float 20s infinite alternate;
     }
-    body::after {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, #b71c1c, transparent);
-      bottom: -100px; left: -100px;
-      animation-delay: 4s;
-    }
+    .blob-1 { top: -100px; right: -100px; }
+    .blob-2 { bottom: -100px; left: -100px; animation-delay: -10s; }
+
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(20px, -30px) scale(1.05); }
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 50px) scale(1.1); }
     }
 
     .login-card {
-      background: rgba(48, 48, 48, 0.05);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--white);
+      border: 1px solid var(--border-color);
       border-radius: 24px;
-      padding: 48px 44px;
+      padding: 3rem;
       width: 100%;
-      max-width: 440px;
-      box-shadow: 0 32px 64px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
-      position: relative;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
       z-index: 10;
-      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(40px) scale(0.97); }
-      to   { opacity: 1; transform: translateY(0)   scale(1);    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     .brand-logo {
-      width: 72px; height: 72px;
+      width: 64px; height: 64px;
       background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
-      border-radius: 20px;
+      border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 32px; color: #fff;
-      box-shadow: 0 12px 28px rgba(211,47,47,0.45);
-      position: relative;
-    }
-    .brand-logo::after {
-      content: '';
-      position: absolute; inset: -3px;
-      border-radius: 23px;
-      background: linear-gradient(135deg, rgba(211,47,47,0.5), transparent);
-      z-index: -1;
+      margin: 0 auto 1.5rem;
+      font-size: 28px; color: #fff;
+      box-shadow: 0 10px 20px rgba(211,47,47,0.25);
     }
 
     .login-title {
-      font-size: 1.75rem; font-weight: 800; letter-spacing: -0.5px;
-      color: #fff; text-align: center; margin-bottom: 4px;
+      font-size: 1.75rem; font-weight: 800; color: var(--text-main);
+      text-align: center; margin-bottom: 0.5rem; letter-spacing: -0.5px;
     }
+
     .login-subtitle {
-      text-align: center;
-      color: rgba(20, 20, 20, 0.5);
-      font-size: 0.9rem;
-      margin-bottom: 36px;
+      text-align: center; color: var(--text-muted);
+      font-size: 0.95rem; margin-bottom: 2.5rem;
     }
 
     .form-label {
-      color: rgba(6, 6, 6, 0.75);
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      font-weight: 600; color: var(--text-main); font-size: 0.85rem;
+      margin-bottom: 0.5rem; display: block;
     }
 
     .input-group-text {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background-color: #f8f9fa;
+      border-color: var(--border-color);
+      color: var(--text-muted);
       border-right: none;
-      color: rgba(255,255,255,0.5);
     }
 
     .form-control {
-      background: rgba(255,255,255,0.08) !important;
-      border: 1px solid rgba(255,255,255,0.15);
+      border-color: var(--border-color);
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
       border-left: none;
-      color: #fff !important;
-      font-size: 0.97rem;
-      transition: all 0.3s;
-      padding: 12px 16px;
     }
+
     .form-control:focus {
-      background: rgba(255,255,255,0.12) !important;
-      border-color: var(--primary-red) !important;
-      box-shadow: none !important;
-      color: #fff !important;
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 4px rgba(211,47,47,0.1);
     }
-    .form-control::placeholder { color: rgba(255,255,255,0.3); }
+
     .input-group:focus-within .input-group-text {
       border-color: var(--primary-red);
+      color: var(--primary-red);
     }
 
     .btn-login {
-      background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+      background: var(--primary-red);
       border: none;
       border-radius: 12px;
-      padding: 14px;
-      font-size: 1rem;
+      padding: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.3px;
       color: #fff;
       width: 100%;
+      margin-top: 1rem;
       transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 8px 20px rgba(211,47,47,0.35);
-      margin-top: 8px;
+      box-shadow: 0 8px 15px rgba(211,47,47,0.2);
     }
+
     .btn-login:hover {
+      background: var(--dark-red);
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(211,47,47,0.5);
-      color: #fff;
+      box-shadow: 0 12px 20px rgba(211,47,47,0.3);
     }
-    .btn-login:active { transform: translateY(0); }
 
     .alert-custom {
-      background: rgba(211,47,47,0.15);
-      border: 1px solid rgba(211,47,47,0.4);
-      color: #ff8a80;
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #c53030;
       border-radius: 12px;
-      padding: 12px 16px;
-      margin-bottom: 24px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
       font-size: 0.9rem;
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 0.5rem;
     }
 
     .footer-text {
-      text-align: center;
-      margin-top: 32px;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.8rem;
-    }
-
-    .input-reveal { cursor: pointer; }
-
-    /* Particles */
-    .particle {
-      position: fixed;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: rgba(211,47,47,0.4);
-      animation: rise linear infinite;
-      pointer-events: none;
-    }
-    @keyframes rise {
-      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.6; }
-      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+      text-align: center; margin-top: 2rem;
+      color: var(--text-muted); font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
 
-<!-- Floating particles -->
-<?php for ($i = 0; $i < 15; $i++): ?>
-  <div class="particle" style="
-    left: <?= rand(0, 100) ?>%;
-    width: <?= rand(3, 7) ?>px;
-    height: <?= rand(3, 7) ?>px;
-    animation-duration: <?= rand(8, 20) ?>s;
-    animation-delay: <?= rand(0, 10) ?>s;
-    opacity: <?= rand(2, 8) / 10 ?>;
-  "></div>
-<?php endfor; ?>
+<div class="bg-decoration">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
 
 <div class="login-card">
 

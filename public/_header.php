@@ -34,7 +34,7 @@ if (str_ends_with($scriptDir, '/public') || str_contains($scriptDir, '/public/')
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold fs-5" href="<?php echo rtrim($root, '/'); ?>/../index.php"><i class="fa-solid fa-graduation-cap me-2"></i>IBanT  Pay</a>
+      <a class="navbar-brand fw-bold fs-5" href="<?php echo rtrim($root, '/'); ?>/../index.php"><i class="bi bi-wallet-fill"></i>IBanT  Pay</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>

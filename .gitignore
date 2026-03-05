@@ -1,0 +1,32 @@
+# Dépendances et librairies
+/vendor/
+node_modules/
+
+# Fichiers temporaires
+*.log
+*.tmp
+*.swp
+
+# Cache
+/cache/
+*.cache
+
+# Configurations locales
+.env
+.env.local
+.env.*.local
+
+# Sessions et uploads
+/session/
+uploads/
+
+# IDE / éditeurs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Système
+.DS_Store
+Thumbs.db
+run

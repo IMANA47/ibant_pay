@@ -4,7 +4,7 @@
   </div>
   <footer class="bg-light py-4 mt-5 border-top">
     <div class="container text-center text-muted small">
-            <a class="navbar-brand fs-5 btn btn-danger mt-3 fw-bold small text-white"><i class="fa-solid fa-graduation-cap me-2"></i>IBanT  Pay</a>
+            <a class="navbar-brand fs-5 btn btn-danger mt-3 fw-bold small text-white"><i class="bi bi-wallet-fill"></i>IBanT Pay</a>
       <p class="mt-3">© 2026 IBanT Pay <strong><a href="http://">Nsengimana François</a></strong></p>
     </div>
   </footer>
