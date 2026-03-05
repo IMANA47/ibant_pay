@@ -55,7 +55,7 @@ if (!str_contains($root, '/public')) {
 
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      background: linear-gradient(135deg, #f8f9fa 0%, #dcdfe2ff 40%, #dcdfe2ff 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -90,7 +90,7 @@ if (!str_contains($root, '/public')) {
     }
 
     .login-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(48, 48, 48, 0.05);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -132,13 +132,13 @@ if (!str_contains($root, '/public')) {
     }
     .login-subtitle {
       text-align: center;
-      color: rgba(255,255,255,0.5);
+      color: rgba(20, 20, 20, 0.5);
       font-size: 0.9rem;
       margin-bottom: 36px;
     }
 
     .form-label {
-      color: rgba(255,255,255,0.75);
+      color: rgba(6, 6, 6, 0.75);
       font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.5px;
