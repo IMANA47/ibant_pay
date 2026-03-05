@@ -39,11 +39,23 @@ if (str_ends_with($scriptDir, '/public') || str_contains($scriptDir, '/public/')
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item"><a class="nav-link fw-bold small" href="<?php echo rtrim($root, '/'); ?>/../index.php">Accueil</a></li>
           <li class="nav-item"><a class="nav-link fw-bold small" href="<?php echo $root; ?>/classes/classes.php">Classes</a></li>
           <li class="nav-item"><a class="nav-link fw-bold small" href="<?php echo $root; ?>/etudiants/etudiants.php">Etudiants</a></li>
           <li class="nav-item"><a class="nav-link fw-bold small" href="<?php echo $root; ?>/paiement/paiements.php">Paiements</a></li>
+
+          <?php if (auth_check()): ?>
+          <li class="nav-item ms-3 d-flex align-items-center gap-2">
+            <span class="text-white-50 small">
+              <i class="fa-solid fa-circle-user me-1"></i>
+              <strong class="text-white"><?= htmlspecialchars(auth_user()['nom'] ?? auth_user()['username']) ?></strong>
+            </span>
+            <a href="<?php echo $root; ?>/logout.php" class="btn btn-outline-light btn-sm fw-bold" title="Déconnexion">
+              <i class="fa-solid fa-right-from-bracket me-1"></i>Quitter
+            </a>
+          </li>
+          <?php endif; ?>
 
         </ul>
       </div>
